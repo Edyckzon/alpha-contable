@@ -1,0 +1,55 @@
+<section id="simulador" class="calculator-section">
+  <div class="header-content">
+    <h2 class="section-title">Calculadora de <span class="highlight">Optimización Fiscal</span></h2>
+    <p class="section-subtitle">
+      Descubre cuánto capital podrías estar perdiendo por una mala estrategia tributaria.
+    </p>
+  </div>
+
+  <div class="calc-container">
+    <div class="glass-panel">
+      <!-- Controles -->
+      <div class="control-group">
+        <label>Ingresos Brutos Anuales (S/)</label>
+        <h3 class="current-value">S/ {{ ingresosMostrados }}</h3>
+
+        <input
+          type="range"
+          class="cyber-slider"
+          min="100000"
+          max="5000000"
+          step="50000"
+          [value]="ingresosActuales"
+          (input)="calcularAhorro($event)"
+        />
+
+        <div class="slider-labels">
+          <span>100K</span>
+          <span>5M+</span>
+        </div>
+      </div>
+
+      <!-- Resultados animados por GSAP -->
+      <div class="result-box">
+        <p class="result-label">Potencial de Optimización (Simulador)</p>
+        <div class="number-wrapper">
+          <span class="currency">S/</span>
+          <!-- GSAP inyectará los números aquí -->
+          <span id="ahorro-counter" class="glow-number">0</span>
+          <span class="currency" style="font-size: 1.5rem; opacity: 0.7">/ año*</span>
+        </div>
+
+        <!-- EL BLINDAJE LEGAL -->
+        <div class="legal-shield">
+          <p>
+            * <strong>AVISO LEGAL:</strong> Los resultados de este simulador son estrictamente
+            referenciales e hipotéticos, basados en promedios del sector (aprox. 8% - 12%). No
+            constituyen una promesa, garantía, ni asesoría fiscal vinculante. El ahorro real de su
+            empresa dependerá de una auditoría profunda de sus libros contables, régimen tributario
+            y contingencias actuales ante la SUNAT.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

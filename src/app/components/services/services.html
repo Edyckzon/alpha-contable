@@ -1,0 +1,21 @@
+<section id="servicios" class="services-section">
+  <div class="header-content">
+    <h2 class="section-title">Nuestra <span class="highlight">Experiencia</span></h2>
+    <p class="section-subtitle">
+      Soluciones milimétricas para que tu empresa opere en piloto automático.
+    </p>
+  </div>
+
+  <div class="cards-grid">
+    @for (servicio of servicios; track servicio.titulo) {
+      <div class="glass-card">
+        <div class="icon-wrapper">
+          <i [class]="servicio.icono"></i>
+        </div>
+        <h3 class="card-title">{{ servicio.titulo }}</h3>
+        <p class="card-desc">{{ servicio.descripcion }}</p>
+        <div class="card-glow"></div>
+      </div>
+    }
+  </div>
+</section>

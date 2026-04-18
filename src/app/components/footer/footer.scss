@@ -1,0 +1,206 @@
+.cyber-footer {
+  background: #020409;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 229, 255, 0.1);
+  color: #94A3B8;
+  padding-top: 80px; /* Le damos buena altura al inicio */
+}
+
+/* Grilla de fondo difuminada */
+.footer-bg-grid {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 80%);
+}
+
+.footer-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+  padding: 0 20px 60px 20px;
+  position: relative;
+  z-index: 2;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 2fr 1fr 1.5fr; /* Distribución de columnas 40% 20% 30% */
+  }
+}
+
+/* Títulos de las columnas */
+.footer-col {
+  .col-title {
+    color: #FFF;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #00E5FF;
+      transition: width 0.3s ease;
+    }
+    
+    &:hover::after { width: 100%; }
+  }
+}
+
+/* Columna 1: Marca */
+.brand-col {
+  .footer-logo {
+    font-size: 2rem;
+    color: #FFF;
+    margin-bottom: 15px;
+    font-weight: 800;
+    .highlight { color: #00E5FF; }
+  }
+  
+  .footer-desc {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 350px;
+    font-size: 0.95rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 15px;
+    
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.03);
+      color: #00E5FF;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border: 1px solid rgba(0, 229, 255, 0.1);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+      &:hover {
+        background: #00E5FF;
+        color: #020409;
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
+      }
+    }
+  }
+}
+
+/* Columna 2: Enlaces */
+.links-col {
+  ul {
+    list-style: none;
+    li {
+      margin-bottom: 15px;
+      
+      a {
+        color: #94A3B8;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        
+        .arrow {
+          color: #00E5FF;
+          opacity: 0;
+          transform: translateX(-10px);
+          transition: all 0.3s ease;
+          margin-right: 8px;
+        }
+
+        &:hover {
+          color: #FFF;
+          transform: translateX(5px);
+          .arrow { opacity: 1; transform: translateX(0); }
+        }
+      }
+    }
+  }
+}
+
+/* Columna 3: Contacto */
+.contact-col {
+  .contact-info {
+    list-style: none;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+      
+      i {
+        color: #00E5FF;
+        font-size: 1.3rem;
+        background: rgba(0, 229, 255, 0.1);
+        padding: 8px;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+/* Bottom Bar (OSZ Software) */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  z-index: 2;
+
+  @media (min-width: 768px) { flex-direction: row; }
+}
+
+.copyright {
+  font-size: 0.9rem;
+  .brand { color: #FFF; font-weight: 800; }
+  .separator { margin: 0 10px; opacity: 0.2; }
+}
+
+.dev-credits {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  .label { color: #64748B; }
+  .dev-link {
+    color: #00E5FF; text-decoration: none; font-weight: 700; transition: all 0.3s ease;
+    &:hover { color: #FFF; text-shadow: 0 0 10px rgba(0, 229, 255, 0.8); }
+  }
+  .dot { color: rgba(255, 255, 255, 0.1); }
+}
+
+.footer-glow-line {
+  position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 229, 255, 0.5) 50%, transparent 100%);
+  filter: blur(1px);
+}

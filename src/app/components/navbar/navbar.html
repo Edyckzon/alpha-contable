@@ -1,0 +1,30 @@
+<nav class="glass-nav" [class.menu-open]="isMenuOpen()">
+  <div class="nav-container">
+    <div class="logo" (click)="scrollTo('inicio')">
+      <span class="logo-icon">▲</span>
+      <span class="logo-text">ALPHA</span>
+    </div>
+    
+    <button class="menu-toggle" (click)="toggleMenu()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <div class="nav-content" [class.show]="isMenuOpen()">
+      <ul class="nav-links">
+        <li><a (click)="scrollTo('inicio')">Inicio</a></li>
+        <li><a (click)="scrollTo('servicios')">Servicios</a></li>
+        <li><a (click)="scrollTo('equipo')">Equipo</a></li>
+        <li><a (click)="scrollTo('clientes')">Clientes</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/51903578690" target="_blank" class="btn-whatsapp">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a (click)="scrollTo('contacto')" class="nav-btn">Contacto</a>
+      </div>
+    </div>
+  </div>
+</nav>

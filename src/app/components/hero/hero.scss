@@ -1,0 +1,142 @@
+/* Variables de Breakpoints */
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+
+.hero-container {
+  min-height: 100vh; /* min-height en lugar de height fija para móviles */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent; 
+  padding: 80px 20px 40px; /* Márgenes superiores móviles para el navbar */
+  text-align: center;
+
+  @media (min-width: $breakpoint-md) {
+    padding: 0 20px;
+    text-align: inherit; /* Inherit para volver a left si queremos en PC */
+  }
+  
+  /* El orbe brillante de fondo */
+  .glow-orb {
+    position: absolute;
+    width: 300px; /* Más pequeño en móviles */
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.1) 0%, rgba(2, 4, 9, 0) 70%);
+    top: 40%; /* Ajustado para móviles */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    filter: blur(40px);
+
+    @media (min-width: $breakpoint-md) {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.15) 0%, rgba(2, 4, 9, 0) 70%);
+      top: 50%;
+    }
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrado en móviles */
+    max-width: 800px;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 2.3rem; /* Crítico móvil */
+    font-weight: 800;
+    line-height: 1.1;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+
+    @media (min-width: $breakpoint-sm) {
+      font-size: 2.8rem;
+    }
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 4.5rem; /* Crítico PC */
+      margin-bottom: 24px;
+    }
+    
+    .gradient-text {
+      background: linear-gradient(90deg, #00E5FF, #0077FF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .subtitle {
+    font-size: 1rem; /* Crítico móvil */
+    color: #94A3B8;
+    margin-bottom: 30px;
+    font-weight: 300;
+    max-width: 600px;
+    width: 100%;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: 1.2rem; /* Crítico PC */
+      margin-bottom: 40px;
+    }
+  }
+
+  .cta-group {
+    display: flex;
+    flex-direction: column; /* Apilados en móviles */
+    gap: 15px;
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+
+    @media (min-width: $breakpoint-sm) {
+      flex-direction: row; /* Uno al lado del otro en PC */
+      max-width: none;
+      gap: 20px;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      width: 100%; /* Botones ancho completo móvil */
+
+      @media (min-width: $breakpoint-sm) {
+        width: auto; /* Ancho automático PC */
+        padding: 16px 32px;
+      }
+    }
+
+    .btn-primary {
+      background: #00E5FF;
+      color: #020409;
+      border: none;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+      
+      &:hover {
+        background: #00C4EB;
+        box-shadow: 0 0 25px rgba(0, 229, 255, 0.5);
+        transform: translateY(-2px);
+      }
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: #E2E8F0;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+  }
+}

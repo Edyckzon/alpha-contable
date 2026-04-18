@@ -1,1 +1,78 @@
-/* You can add global styles to this file, and also import other style files */
+/* Importamos la fuente Inter (estilo Apple/Moderno) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Evita que el menú tape el título */
+  font-size: 16px; /* Base */
+
+  /* Punto de quiebre para móviles (hacemos el rem un poco más pequeño base) */
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+body {
+  background-color: #020409; /* Fondo súper negro premium */
+  color: #E2E8F0;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* === ANIMACIÓN DE FONDO FUTURISTA (CSS Puro y SVG) === */
+/* Creamos un patrón de líneas sutiles que flotan */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Detrás de todo */
+  opacity: 0.05; /* Muy sutil */
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 L30 40 L50 20 L70 50 L90 30' stroke='%2300E5FF' stroke-width='0.5' fill='none'/%3E%3Ccircle cx='10' cy='10' r='1' fill='%2300E5FF'/%3E%3Ccircle cx='30' cy='40' r='1' fill='%2300E5FF'/%3E%3Ccircle cx='50' cy='20' r='1' fill='%2300E5FF'/%3E%3Ccircle cx='70' cy='50' r='1' fill='%2300E5FF'/%3E%3Ccircle cx='90' cy='30' r='1' fill='%2300E5FF'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  animation: floatBackground 60s linear infinite;
+}
+
+/* Gradiente sutil para profundidad */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at center, rgba(0, 229, 255, 0.03) 0%, rgba(2, 4, 9, 0) 70%);
+}
+
+@keyframes floatBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: 300px 600px; }
+}
+
+/* Animación de aparición */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  view-timeline-name: --section;
+  view-timeline-axis: block;
+}
+
+/* Aplica a los títulos de las secciones */
+.section-title, .section-subtitle, .glass-card, .team-card {
+  animation: reveal linear forwards;
+  animation-timeline: --section;
+  animation-range: entry 10% cover 30%;
+}
