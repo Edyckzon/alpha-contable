@@ -42,8 +42,6 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
-# ... (mantén lo que tienes y añade esto al final)
-
 # Windows thumbnails
 _notes
 dwsync.xml
