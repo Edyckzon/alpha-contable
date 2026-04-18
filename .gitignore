@@ -41,3 +41,18 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# ... (mantén lo que tienes y añade esto al final)
+
+# Windows thumbnails
+_notes
+dwsync.xml
+Thumbs.db
+
+# Backup files
+*.bak
+*.tmp
+
+# Environment files
+.env
+.env.local
